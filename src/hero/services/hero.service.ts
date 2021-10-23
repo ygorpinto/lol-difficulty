@@ -11,7 +11,8 @@ export class HeroService {
         private readonly heroEntityRepository: Repository<Hero>
     ) {}
 
-    getAll() {
-        return this.heroEntityRepository.find();
+    async getAll() {
+        const heroes = await this.heroEntityRepository.find();
+        return heroes
     }
 }

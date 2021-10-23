@@ -5,6 +5,7 @@ import { HeroModule } from './hero/hero.module';
 
 @Module({
   imports: [
+    HeroModule,
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -18,7 +19,6 @@ import { HeroModule } from './hero/hero.module';
       logging: true,
       entities:["dist/**/*.entity.js"],
     }),
-    HeroModule
   ],
   controllers: [],
   providers: [],

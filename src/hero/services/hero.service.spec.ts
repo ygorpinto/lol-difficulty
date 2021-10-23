@@ -6,15 +6,24 @@ import { HeroService } from './hero.service';
 describe('HeroService', () => {
   let service: HeroService;
 
+  let mock = {
+    find: jest.fn()
+  }
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [HeroService],
+      providers: [HeroService,
+      {
+        provide: getRepositoryToken(HeroEntity),
+        useValue: mock
+      }
+      ]
     }).compile();
 
     service = module.get<HeroService>(HeroService);
   });
 
-  it('should not be null', async () => {
-    expect(await service.getAll()).not.toEqual(null);
+  it('should not be null', () => {
+    expect(service.getAll()).not.toEqual(null);
   });
 });
