@@ -9,7 +9,9 @@ import { HeroService } from '../services/hero.service';
 import { HeroController } from './hero.controller';
 
 describe('HeroController', () => {
+  
   let controller: HeroController;
+
   let mock:Hero = {
     id: 1,
     name:"Anivia",
@@ -34,5 +36,9 @@ describe('HeroController', () => {
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  it('should create data', () => {
+    expect(controller.create(mock)).toBeTruthy();
   });
 });

@@ -13,6 +13,11 @@ export class HeroService {
 
     async getAll() {
         const heroes = await this.heroEntityRepository.find();
-        return heroes
+        return heroes;
+    }
+
+    async create(hero:Hero) {
+        const heroToSave = await this.heroEntityRepository.save(hero);
+        return heroToSave;
     }
 }

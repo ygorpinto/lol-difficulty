@@ -7,7 +7,8 @@ describe('HeroService', () => {
   let service: HeroService;
 
   let mock = {
-    find: jest.fn()
+    find: jest.fn(),
+    save: jest.fn()
   }
 
   beforeEach(async () => {
