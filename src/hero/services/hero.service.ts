@@ -20,4 +20,14 @@ export class HeroService {
         const heroToSave = await this.heroEntityRepository.save(hero);
         return heroToSave;
     }
+
+    async update(id:number, hero:Hero) {
+        const heroToUpdate = await this.heroEntityRepository.update({id:id},hero);
+        return heroToUpdate;
+    }
+
+    async delete(id:number) {
+        const heroToDelete = await this.heroEntityRepository.delete({id:id});
+        return heroToDelete;
+    }
 }

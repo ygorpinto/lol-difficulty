@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { Hero } from '../models/hero.interface';
 import { HeroService } from '../services/hero.service';
 
@@ -14,6 +14,16 @@ export class HeroController {
 
     @Post()
     async create(@Body() hero:Hero) {
-        return await this.heroService.create(hero)
+        return await this.heroService.create(hero);
+    }
+
+    @Put()
+    async update(@Body() id:number, hero:Hero) {
+        return await this.heroService.update(id,hero);
+    }
+
+    @Delete()
+    async delete(@Body() id:number) {
+        return await this.heroService.delete(id);
     }
 }
